@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+    <h1>Add a new restaurant</h1>
+    <%= simple_form_for(@restaurant) do |restaurant| %>
+      <% if @restaurant.errors.any? %>
+        <div class="errors-container">
+          <ul>
+            <% @restaurant.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= simple_form_for [@restaurant] do |restaurant| %>
+        <%= restaurant.input :name %>
+        <%= restaurant.input :address %>
+        <%= restaurant.input :phone_number %>
+        <%= restaurant.input :category %>
+    <div class="form-inline">
+
+    <%= restaurant.submit "Create", class: "btn btn-primary" %>
+    <%= link_to "Cancel", restaurants_path, class: "btn btn-danger"%>
+
+    </div>
+
+      <% end %>
+
+    <% end %>
+
+    </div>
+
+  </div>
+
+
+

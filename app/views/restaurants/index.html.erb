@@ -1,0 +1,14 @@
+<p class="alert alert-info text-center" role="alert"> <%= link_to "Create a new restaurant", new_restaurant_path %></p>
+
+<h1>All the restaurants</h1>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <span class="badge badge-pill badge-success">
+        <%= restaurant.phone_number %>
+      </span>
+      <%= link_to restaurant.name, restaurant_path(restaurant.id) %>
+    </li>
+  <% end %>
+</ul>
